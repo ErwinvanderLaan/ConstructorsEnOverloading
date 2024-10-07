@@ -1,20 +1,20 @@
 package org.example;
 
+import static org.example.Main.askForInput;
+
 public class Rectangle {
     private int length;
     private int width;
 
 // the methods:
 
-    // The constructors:
-
+// The constructors:
     public Rectangle() {
-        int length = 4;
-        int width = 2;
+       this (4, 2);
     }
 
-    public Rectangle(int length) {
-        int width = length;
+    public Rectangle(int length ) {
+       width = length;
     }
 
     public Rectangle(int length, int width) {
@@ -22,9 +22,10 @@ public class Rectangle {
         this.width = width;
     }
 
+// Calculations:
     // Calculate the area of a rectangle with parameters
     int calculateArea() {
-        return length * width;
+        return this.length * this.width;
     }
 
     // Calculate the area of a rectangle with properties
@@ -32,20 +33,44 @@ public class Rectangle {
         return length * width;
     }
 
-    // Calculate the circumference of a rectangle with parameters
-    int calculateCircumference() {
-        return 2 * (length + width);
+    // Calculate the perimeter of a rectangle with parameters
+    int calculatePerimeter() {
+        return 2 * (this.length + this.width);
     }
 
-    // Calculate the circumference of a rectangle with properties
-    int calculateCircumference(int length, int width) {
+    // Calculate the perimeter of a rectangle with properties
+    int calculatePerimeter(int length, int width) {
         return 2 * (length + width);
     }
+    // Calculate the distance between the poles
+    public double calculateDistance() {
+        double numberOfPoles = Integer.parseInt(askForInput("Enter the number of poles \n"));
+        Rectangle rectangle = new Rectangle();
+        return rectangle.calculatePerimeter() / numberOfPoles;
+    }
 
-    // Calculate how many times another rectangle fits into the current rectangle
-    double fitsIn(){
-        Rectangle rec1 = new Rectangle();
+    // Calculate the number of poles needed
+    public double calculateNumberOfPoles() {
+        double distanceBetweenPoles = Double.parseDouble(askForInput(
+            "Enter the preferred distance between the poles \n"));
+        Rectangle rectangle = new Rectangle();
+        return  rectangle.calculatePerimeter() / distanceBetweenPoles;
+    }
 
-        return
+// Setters and Getters:
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
     }
 }
