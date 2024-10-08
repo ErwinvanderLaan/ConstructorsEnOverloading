@@ -42,11 +42,12 @@ public class Rectangle {
     int calculatePerimeter(int length, int width) {
         return 2 * (length + width);
     }
+
     // Calculate the distance between the poles
     public double calculateDistance() {
         double numberOfPoles = Integer.parseInt(askForInput("Enter the number of poles \n"));
         Rectangle rectangle = new Rectangle();
-        return rectangle.calculatePerimeter() / numberOfPoles;
+            return rectangle.calculatePerimeter() / numberOfPoles;
     }
 
     // Calculate the number of poles needed

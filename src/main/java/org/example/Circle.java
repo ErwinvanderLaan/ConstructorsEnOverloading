@@ -54,7 +54,7 @@ public class Circle {
   public double getDistance () {
     int numberOfPoles = Integer.parseInt(askForInput("Enter the number of poles \n"));
         Circle circle = new Circle();
-        return  circle.getPerimeter() / numberOfPoles;
+        return circle.getPerimeter() / numberOfPoles;
   }
 
 // Calculate the number of poles needed
