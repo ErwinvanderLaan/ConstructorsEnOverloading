@@ -28,32 +28,26 @@ public class Main {
 
         String adjustParameters = askForInput(
                 "Do you want to adjust the parameters of the object? y / n ");
-        if (adjustParameters.equals("y"))
+        if (adjustParameters.equals("y")) {
             if (choiceCircleOrRectangle.equals("1")) {
-                circle.setRadius(Double.parseDouble
-                        (askForInput("Enter the radius:")));
+                circle.setRadius(Double.parseDouble(askForInput("Enter the radius:")));
             }
-           if (adjustParameters.equals("2")) {
-                rectangle.setLength(Integer.parseInt
-                    (askForInput("Enter length")));
-                rectangle.setWidth(Integer.parseInt
-                    (askForInput("Enter width")));
-                }
-            else {
-               System.out.println("Invalid choice. Please try again");
-           }
 
-        if (adjustParameters.equals("n")) {
-            System.out.println("Using default values");
+            else {
+              rectangle.setLength(Integer.parseInt(askForInput("Enter length")));
+              rectangle.setWidth(Integer.parseInt(askForInput("Enter width")));
+            }
         }
 
         System.out.println("""
                         What do you want to calculate?
-                            Press '1' to calculate the diameter ( circle only).
+                            Press '1' to calculate the diameter (circle only).
                             Press '2' to calculate the perimeter.
                             Press '3' to calculate the area.
-                            Press '4' to calculate the number of poles needed.
-                            Press '5' to calculate the distance between poles.
+                            Press '4' to calculate how many times a rectangle fits in the current
+                                      rectangle.
+                            Press '5' to calculate the number of poles needed.
+                            Press '6' to calculate the distance between poles.
                         """);
 
         String choiceMenu = askForInput("Choose an option:");
@@ -75,12 +69,20 @@ public class Main {
                             System.out.println(rectangle.calculateArea() );
                         break;
                     case "4":
+                        Rectangle rectangle2 = new Rectangle(
+                            Integer.parseInt(askForInput("Enter length")),
+                            Integer.parseInt(askForInput("Enter width"))
+                        );
+
+                        System.out.println(rectangle.calculateArea() / rectangle2.calculateArea () );
+                        break;
+                    case "5":
                         if (choiceCircleOrRectangle.equals("1"))
                             System.out.println(circle.getNumberOfPoles() );
                         else
                             System.out.println(rectangle.calculateNumberOfPoles() );
                         break;
-                    case "5":
+                    case "6":
                         if (choiceCircleOrRectangle.equals("1") )
                             System.out.println(circle.getDistance() );
                         else

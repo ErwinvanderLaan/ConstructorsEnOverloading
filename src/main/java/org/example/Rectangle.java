@@ -45,17 +45,15 @@ public class Rectangle {
 
     // Calculate the distance between the poles
     public double calculateDistance() {
-        double numberOfPoles = Integer.parseInt(askForInput("Enter the number of poles \n"));
-        Rectangle rectangle = new Rectangle();
-            return rectangle.calculatePerimeter() / numberOfPoles;
+        double numberOfPoles = Double.parseDouble(askForInput("Enter the number of poles \n"));
+            return calculatePerimeter() / numberOfPoles;
     }
 
     // Calculate the number of poles needed
     public double calculateNumberOfPoles() {
         double distanceBetweenPoles = Double.parseDouble(askForInput(
             "Enter the preferred distance between the poles \n"));
-        Rectangle rectangle = new Rectangle();
-        return  rectangle.calculatePerimeter() / distanceBetweenPoles;
+        return  calculatePerimeter() / distanceBetweenPoles;
     }
 
 // Setters and Getters:

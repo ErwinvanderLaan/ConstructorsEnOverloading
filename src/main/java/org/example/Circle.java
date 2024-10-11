@@ -27,8 +27,8 @@ public class Circle {
   }
 
   // Set a new diameter for the circle
-  public double newDiameter (double x){
-    return x = this.radius;
+  public double newDiameter (){
+    return this.radius * 2;
   }
 
   // Calculate the perimeter of a circle
@@ -53,16 +53,14 @@ public class Circle {
   // Calculate the distance between the poles
   public double getDistance () {
     int numberOfPoles = Integer.parseInt(askForInput("Enter the number of poles \n"));
-        Circle circle = new Circle();
-        return circle.getPerimeter() / numberOfPoles;
+        return getPerimeter() / numberOfPoles;
   }
 
 // Calculate the number of poles needed
   public double getNumberOfPoles () {
     double distanceBetweenPoles = Double.parseDouble(askForInput(
         "Enter the preferred distance between the poles \n"));
-    Circle circle = new Circle();
-      return  circle.getPerimeter() / distanceBetweenPoles;
+      return getPerimeter() / distanceBetweenPoles;
   }
 
 
