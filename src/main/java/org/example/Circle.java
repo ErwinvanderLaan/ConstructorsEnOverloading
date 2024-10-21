@@ -3,22 +3,22 @@ package org.example;
 import static org.example.Main.askForInput;
 
 public class Circle {
-  private double radius;
+  private static double radius;
 
 // The constructors:
   public Circle(){
-    this.radius = 8.0;
+    radius = 8.0;
   }
 
   public Circle(double radius){
-    this.radius = radius;
+    Circle.radius = radius;
   }
 
 // The calculations:
 
   // Calculate the diameter of a circle
-  public double getDiameter (){
-    return 2 * this.radius;
+  public static double getDiameter(){
+    return 2 * radius;
   }
 
   // Calculate the diameter of a circle with parameters
@@ -26,14 +26,9 @@ public class Circle {
     return 2 * radius;
   }
 
-  // Set a new diameter for the circle
-  public double newDiameter (){
-    return this.radius * 2;
-  }
-
   // Calculate the perimeter of a circle
-  public double getPerimeter () {
-    return 2 * Math.PI * this.radius;
+  public static double getPerimeter() {
+    return 2 * Math.PI * radius;
 }
 
   // Calculate the perimeter of a circle with parameters
@@ -42,8 +37,8 @@ public class Circle {
   }
 
   // Calculate the area of a circle
-  public double getArea () {
-    return Math.PI * this.radius * this.radius;
+  public static double getArea() {
+    return Math.PI * radius * radius;
   }
   // Calculate the area of a circle with parameters
   public double getArea (double radius) {
@@ -51,13 +46,13 @@ public class Circle {
   }
 
   // Calculate the distance between the poles
-  public double getDistance () {
+  public static double getDistanceBetweenPoles() {
     int numberOfPoles = Integer.parseInt(askForInput("Enter the number of poles \n"));
         return getPerimeter() / numberOfPoles;
   }
 
 // Calculate the number of poles needed
-  public double getNumberOfPoles () {
+  public static double getNumberOfPoles() {
     double distanceBetweenPoles = Double.parseDouble(askForInput(
         "Enter the preferred distance between the poles \n"));
       return getPerimeter() / distanceBetweenPoles;
@@ -66,10 +61,10 @@ public class Circle {
 
 // Getters & Setters
   public double getRadius() {
-    return this.radius;
+    return radius;
   }
 
   public void setRadius(double radius) {
-    this.radius = radius;
+    Circle.radius = radius;
   }
 }

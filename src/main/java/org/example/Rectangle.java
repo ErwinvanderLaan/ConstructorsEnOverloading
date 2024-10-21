@@ -3,8 +3,8 @@ package org.example;
 import static org.example.Main.askForInput;
 
 public class Rectangle {
-    private int length;
-    private int width;
+    private static int length;
+    private static int width;
 
 // the methods:
 
@@ -15,42 +15,48 @@ public class Rectangle {
 
     public Rectangle(int length ) {
        width = length;
+       Rectangle.length = length;
     }
 
     public Rectangle(int length, int width) {
-        this.length = length;
-        this.width = width;
+        Rectangle.length = length;
+        Rectangle.width = width;
     }
 
 // Calculations:
     // Calculate the area of a rectangle with parameters
-    int calculateArea() {
-        return this.length * this.width;
+    public static int calculateArea() {
+        return length * width;
     }
 
     // Calculate the area of a rectangle with properties
-    int calculateArea(int length, int width) {
+    public int calculateArea(int length, int width) {
         return length * width;
     }
 
     // Calculate the perimeter of a rectangle with parameters
-    int calculatePerimeter() {
-        return 2 * (this.length + this.width);
-    }
-
-    // Calculate the perimeter of a rectangle with properties
-    int calculatePerimeter(int length, int width) {
+    public static int calculatePerimeter() {
         return 2 * (length + width);
     }
 
+    // Calculate the perimeter of a rectangle with properties
+    public int calculatePerimeter(int length, int width) {
+        return 2 * (length + width);
+    }
+
+    // Calculate how many times a rectangle fits into another rectangle
+    public static double calculateRectangleFitsInAnotherRectangle(int length, int width){
+        return (double) Rectangle.calculateArea() / Rectangle.calculateArea();
+    }
+
     // Calculate the distance between the poles
-    public double calculateDistance() {
+    public static double calculateDistance() {
         double numberOfPoles = Double.parseDouble(askForInput("Enter the number of poles \n"));
             return calculatePerimeter() / numberOfPoles;
     }
 
     // Calculate the number of poles needed
-    public double calculateNumberOfPoles() {
+    public static double calculateNumberOfPoles() {
         double distanceBetweenPoles = Double.parseDouble(askForInput(
             "Enter the preferred distance between the poles \n"));
         return  calculatePerimeter() / distanceBetweenPoles;
@@ -66,10 +72,10 @@ public class Rectangle {
     }
 
     public void setLength(int length) {
-        this.length = length;
+        Rectangle.length = length;
     }
 
     public void setWidth(int width) {
-        this.width = width;
+        Rectangle.width = width;
     }
 }

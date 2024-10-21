@@ -55,39 +55,34 @@ public class Main {
 
             switch (choiceMenu) {
                 case "1":
-                    System.out.println(circle.getDiameter());
+                    System.out.println(Circle.getDiameter());
                     break;
                 case "2":
                     if (choiceCircleOrRectangle.equals("1"))
-                        System.out.println(circle.getPerimeter());
+                        System.out.println(Circle.getPerimeter());
                     else
-                        System.out.println(rectangle.calculatePerimeter());
+                        System.out.println(Rectangle.calculatePerimeter());
                     break;
                 case "3":
                     if (choiceCircleOrRectangle.equals("1"))
-                        System.out.println(circle.getArea());
+                        System.out.println(Circle.getArea());
                     else
-                        System.out.println(rectangle.calculateArea());
+                        System.out.println(Rectangle.calculateArea());
                     break;
                 case "4":
-                    Rectangle rectangle2 = new Rectangle(
-                        Integer.parseInt(askForInput("Enter length")),
-                        Integer.parseInt(askForInput("Enter width"))
-                    );
-
-                    System.out.println(rectangle.calculateArea() / rectangle2.calculateArea());
+                    System.out.println(Rectangle.calculateRectangleFitsInAnotherRectangle(8,12));
                     break;
                 case "5":
                     if (choiceCircleOrRectangle.equals("1"))
-                        System.out.println(circle.getNumberOfPoles());
+                        System.out.println(Circle.getNumberOfPoles());
                     else
-                        System.out.println(rectangle.calculateNumberOfPoles());
+                        System.out.println(Rectangle.calculateNumberOfPoles());
                     break;
                 case "6":
                     if (choiceCircleOrRectangle.equals("1"))
-                        System.out.println(circle.getDistance());
+                        System.out.println(Circle.getDistanceBetweenPoles());
                     else
-                        System.out.println(rectangle.calculateDistance());
+                        System.out.println(Rectangle.calculateDistance());
                 case "q":
                     return ;
                 default:
